@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "primary";
+  src: local(MuseoSansW00-100), url("../fonts/primary/MuseoSansW00-100.woff2") format("woff2"),
+    url("fonts/primary/MuseoSansW00-100.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "primary";
+  src: local(MuseoSansW00-300), url("../fonts/primary/MuseoSansW00-300.woff2") format("woff2"),
+    url("../fonts/primary/MuseoSansW00-300.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "primary";
+  src: local(MuseoSansW00-700), url("../fonts/primary/MuseoSansW00-700.woff2") format("woff2"),
+    url("../fonts/primary/MuseoSansW00-700.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "secondary";
+  src: local(GESSTwoLight), url("../fonts/secondary/GESSTwoLight.woff2") format("woff2"),
+    url("../fonts/secondary/GESSTwoLight.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "secondary";
+  src: local(GESSTwoMedium), url("../fonts/secondary/GESSTwoMedium.woff2") format("woff2"),
+    url("../fonts/secondary/GESSTwoMedium.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "secondary";
+  src: local(GESSTwoBold), url("../fonts/secondary/GESSTwoBold.woff2") format("woff2"),
+    url("../fonts/secondary/GESSTwoBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
