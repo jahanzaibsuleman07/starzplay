@@ -32,8 +32,10 @@ const Landing = () => {
     setIsLoading(true);
 
     const imageUrl = await getTredingImage();
-    setTrendingImageUrl(imageUrl);
-    setIsLoading(false);
+    if (imageUrl) {
+      setTrendingImageUrl(imageUrl);
+      setIsLoading(false);
+    }
   }
 
   useEffect(() => {
