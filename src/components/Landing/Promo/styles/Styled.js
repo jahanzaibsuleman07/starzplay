@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Heading } from "../../../Heading";
 import { media } from "../../../../styles/media";
 import { pseudo } from "../../../../styles/shared-styles";
@@ -9,16 +9,16 @@ export const PromoStyled = styled.article`
   background: ${props =>
     props.background &&
     `url(${props.background}-xs.${props.fileExtension ||
-      "jpg"}) 0 100% / ${props.backgroundSize ||
-      "cover"} no-repeat transparent;`};
+    "jpg"}) 0 100% / ${props.backgroundSize ||
+    "cover"} no-repeat transparent;`};
   background-position: ${props => props.backgroundSize && "center"};
   display: flex;
   justify-content: ${props =>
     props.direction === "end"
       ? "flex-end"
       : props.direction === "start"
-      ? "flex-start"
-      : "center"};
+        ? "flex-start"
+        : "center"};
   align-items: center;
   img {
     max-width: 100%;
@@ -29,14 +29,14 @@ export const PromoStyled = styled.article`
     background: ${props =>
       props.background &&
       `url(${props.background}-lg.${props.fileExtension ||
-        "jpg"}) 0 100% / ${props.backgroundSize ||
-        "cover"} no-repeat transparent;`};
+      "jpg"}) 0 100% / ${props.backgroundSize ||
+      "cover"} no-repeat transparent;`};
     background-position: ${props =>
       props.backgroundSize
         ? "center"
         : props.direction === "end"
-        ? "20% 100%"
-        : "60% 100%"};
+          ? "20% 100%"
+          : "60% 100%"};
     padding: ${props => props.theme.spacing.xlarge};
   `}
   ${media.xlarge`
@@ -83,4 +83,42 @@ export const HeadingStyled = styled(Heading)`
     }
     max-width: 20rem;
   `}
+`;
+
+const round = keyframes`
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    left: calc(100% - 20px);
+  }
+  50% {
+    top: calc(100% - 20px);
+    left: calc(100% - 20px);
+  }
+  75% {
+    top: calc(100% - 20px);
+    left: 0;
+  }
+  100% {
+    top: 0;
+    left: 0;
+  }
+`;
+
+export const SkeletonLoader = styled.div`
+    width: 60%;
+    min-height: 35vh;
+    position: relative;
+    .rotate-box {
+      height: 20px;
+      width: 20px;
+      background-color: #00ffff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: ${round} 2s ease-in-out infinite alternate;
+    }
 `;
