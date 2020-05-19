@@ -21,8 +21,9 @@ function getLanguageSelectorItems() {
   ];
 }
 
-function Header() {
+function Header({ headerProps }) {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+  const { OnToggleMiniMode, isMiniMode } = headerProps;
 
   useEffect(() => {
     document.body.classList.toggle("noScrolling", isBurgerMenuOpen);
@@ -30,6 +31,11 @@ function Header() {
 
   function handleOpened() {
     setIsBurgerMenuOpen(!isBurgerMenuOpen);
+  }
+  
+  const handleToggleMiniMode = e => {
+    e.preventDefault();
+    OnToggleMiniMode();
   }
 
   return (
@@ -44,25 +50,30 @@ function Header() {
       <nav>
         <ListStyled
           data={{
-            explore: {
-              text: "Explore",
-              url: "#",
-              role: "link"
+            ...!isMiniMode && {
+              explore: {
+                text: "Explore",
+                url: "#",
+                role: "link"
+              },
             },
             toggleMiniMode: {
               text: "Toggle Mini Mode",
               url: "#",
-              role: "button"
+              role: "button",
+              onClick: handleToggleMiniMode
             }
           }}
           link
         />
-        <Dropdown
-          items={getLanguageSelectorItems()}
-          icon={"languageGlobe"}
-          optionsPosition={"center"}
-          selectedItem={0}
-        />
+        {!isMiniMode &&
+          <Dropdown
+            items={getLanguageSelectorItems()}
+            icon={"languageGlobe"}
+            optionsPosition={"center"}
+            selectedItem={0}
+          />
+        }
       </nav>
     </HeaderStyled>
   );

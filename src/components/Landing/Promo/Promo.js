@@ -2,7 +2,8 @@ import React from "react";
 import {
   PromoStyled,
   HeadingTitleStyled,
-  HeadingStyled
+  HeadingStyled,
+  SkeletonLoader
 } from "./styles/Styled";
 
 const Promo = ({
@@ -13,7 +14,8 @@ const Promo = ({
   backgroundSize,
   direction,
   size,
-  fileExtension
+  fileExtension,
+  isLoading
 }) => (
   <>
     {title && <HeadingTitleStyled rank={2} text={title} size={size} />}
@@ -30,7 +32,13 @@ const Promo = ({
         ariaLabelledby={text}
         direction={direction}
       />
-      {children}
+      {isLoading ? (
+        <SkeletonLoader>
+          <div className="rotate-box" />
+        </SkeletonLoader>
+      ) : (
+        children
+      )}
     </PromoStyled>
   </>
 );

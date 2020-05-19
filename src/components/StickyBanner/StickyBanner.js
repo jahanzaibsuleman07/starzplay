@@ -5,7 +5,7 @@ import {
   StickyBannerStyled
 } from "./styles/Styled";
 
-function StickyBanner({ className, title }) {
+function StickyBanner({ className, title, isMiniMode }) {
   return (
     <StickyBannerStyled className={className}>
       {title && (
@@ -28,13 +28,15 @@ function StickyBanner({ className, title }) {
         buttonType="primary"
         ariaLabel="Mobile"
       />
-      <ButtonStyled
-        label="Facebook"
-        icon="facebook"
-        buttonType={"primary"}
-        backgroundColor={"#4760a0"}
-        ariaLabel="Facebook"
-      />
+      {!isMiniMode && (
+        <ButtonStyled
+          label="Facebook"
+          icon="facebook"
+          buttonType={"primary"}
+          backgroundColor={"#4760a0"}
+          ariaLabel="Facebook"
+        />)
+      }
     </StickyBannerStyled>
   );
 }

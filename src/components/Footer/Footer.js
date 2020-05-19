@@ -2,13 +2,13 @@ import React from "react";
 import FooterNav from "../FooterNav";
 import { FooterStyled, LogoStyled, AppLogosStyled } from "./styles/Styled";
 
-function Footer() {
+function Footer({ isMiniMode }) {
   const currentYear = new Date().getFullYear();
 
   return (
     <FooterStyled>
       <FooterNav />
-      <AppLogosStyled />
+      {!isMiniMode && <AppLogosStyled />}
       <div>
         <small>© {currentYear}</small>
         <LogoStyled />

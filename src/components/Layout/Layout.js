@@ -2,11 +2,11 @@ import React from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const Main = props => (
+const Main = ({ children, miniModeProps }) => (
   <main>
-    <Header />
-    {props.children}
-    <Footer />
+    <Header headerProps={miniModeProps} />
+      {children}
+    <Footer isMiniMode={miniModeProps.isMiniMode} />
   </main>
 );
 

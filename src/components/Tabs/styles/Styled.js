@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Icon } from "../../Icon";
 import flavor from "./web";
 
@@ -38,8 +38,8 @@ export const IconStyled = styled(Icon)`
   width: ${props => props.theme.components.tabs.tab.icon.size};
   height: ${props => props.theme.components.tabs.tab.icon.size};
   margin: ${props => props.theme.spacing.default} 0;
-  fill: ${props => props.isActive 
-    ? props.theme.components.tabs.tab.icon.color.active 
+  fill: ${props => props.isActive
+    ? props.theme.components.tabs.tab.icon.color.active
     : props.theme.components.tabs.tab.icon.color.default
   };
   transition: fill ease .1s;
@@ -52,8 +52,8 @@ export const LabelStyled = styled.span`
   display: block;
   font-weight: ${props => props.isActive ? props.theme.font.weight.bold : props.theme.font.weight.light};
   font-size: ${props => props.theme.components.tabs.tab.font.size};
-  color: ${props => props.isActive 
-    ? props.theme.components.tabs.tab.font.color.active 
+  color: ${props => props.isActive
+    ? props.theme.components.tabs.tab.font.color.active
     : props.theme.components.tabs.tab.font.color.default
   };
   text-transform: capitalize;
@@ -67,4 +67,23 @@ export const TabContentContainerStyled = styled.div`
   color:  ${props => props.theme.components.tabs.color};
   text-align: ${props => props.theme.components.tabs.align || "center"};
   padding: ${props => props.theme.components.tabs.padding};
+`;
+
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const TabContentLoader = styled.div`
+  border: 16px solid #f1f1f1;
+  border-top: 16px solid #00ffff;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: ${spin} 1.5s linear infinite;
+  margin: 0 auto;
 `;
