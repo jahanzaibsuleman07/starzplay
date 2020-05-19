@@ -48,6 +48,7 @@ const List = ({
                   href={data[item].url || ""}
                   role={data[item].role || ""}
                   title={data[item].title || ""}
+                  onClick={data[item].onClick || null}
                 >
                   {data[item].text || ""}
                 </a>
