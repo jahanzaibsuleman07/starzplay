@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Layout from "../components/Layout";
 import Hero from "../components/Landing/Hero";
 import WeAre from "../components/Landing/WeAre";
 import Promo from "../components/Landing/Promo";
 import { Tabs } from "../components/Tabs";
 import StickyBanner from "../components/StickyBanner";
-import { getTredingImage } from './apis';
+import Picture from "../components/Picture";
 import {
   TabUser as Tab1,
   TabDevices as Tab2,
@@ -21,29 +21,14 @@ const tabsLayout = isMiniMode => [
 const Landing = () => {
 
   const [isMiniMode, setToggleMiniMode] = useState(false);
-  const [trendingImageUrl, setTrendingImageUrl] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
 
   const OnToggleMiniMode = () => {
     setToggleMiniMode(!isMiniMode);
   }
 
-  const onGettingTredingImage = async() => {
-    setIsLoading(true);
-
-    const imageUrl = await getTredingImage();
-    if (imageUrl) {
-      setTrendingImageUrl(imageUrl);
-      setIsLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    onGettingTredingImage();
-  }, []);
-
   return (
     <>
+      {console.log('#####')}
       <Layout miniModeProps={{
           OnToggleMiniMode: OnToggleMiniMode,
           isMiniMode: isMiniMode,
@@ -55,11 +40,7 @@ const Landing = () => {
           size={"largest"}
         />
         <WeAre />
-        <Promo title="Whats trending " size={"xlarge"} isLoading={isLoading}>
-          <picture>
-            <img src={trendingImageUrl} alt="What's trending" />
-          </picture>
-        </Promo>
+        <Picture />
         <Promo
           background={"/images/promo1"}
           backgroundLocale={true}
